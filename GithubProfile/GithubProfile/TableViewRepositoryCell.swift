@@ -8,7 +8,9 @@
 import UIKit
 
 class TableViewRepositoryCell: UITableViewCell {
-    static let reuseIdentifier = String(describing: self)
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,6 +26,7 @@ class TableViewRepositoryCell: UITableViewCell {
         let view = RepositoryView(repository: .init(name: "Test"))
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
+        
         let padding: CGFloat = 14
         NSLayoutConstraint.activate([
             view.heightAnchor.constraint(equalToConstant: 80),

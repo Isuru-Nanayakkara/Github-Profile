@@ -17,6 +17,8 @@
 		43E3B11E2670FBAC00CE45F3 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B11D2670FBAC00CE45F3 /* RepositoryView.swift */; };
 		43E3B1202670FD8300CE45F3 /* TableViewRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B11F2670FD8300CE45F3 /* TableViewRepositoryCell.swift */; };
 		43E3B1222670FD9200CE45F3 /* CollectionViewRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B1212670FD9200CE45F3 /* CollectionViewRepositoryCell.swift */; };
+		43E3B1242671051400CE45F3 /* HorizontallyScrollableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B1232671051400CE45F3 /* HorizontallyScrollableCell.swift */; };
+		43E3B1262671063A00CE45F3 /* HorizontalScrollLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B1252671063A00CE45F3 /* HorizontalScrollLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		43E3B11D2670FBAC00CE45F3 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
 		43E3B11F2670FD8300CE45F3 /* TableViewRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewRepositoryCell.swift; sourceTree = "<group>"; };
 		43E3B1212670FD9200CE45F3 /* CollectionViewRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewRepositoryCell.swift; sourceTree = "<group>"; };
+		43E3B1232671051400CE45F3 /* HorizontallyScrollableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontallyScrollableCell.swift; sourceTree = "<group>"; };
+		43E3B1252671063A00CE45F3 /* HorizontalScrollLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +111,10 @@
 				43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */,
 				43E3B11B2670ED7100CE45F3 /* ProfileViewController.swift */,
 				43E3B11D2670FBAC00CE45F3 /* RepositoryView.swift */,
+				43E3B1232671051400CE45F3 /* HorizontallyScrollableCell.swift */,
 				43E3B11F2670FD8300CE45F3 /* TableViewRepositoryCell.swift */,
 				43E3B1212670FD9200CE45F3 /* CollectionViewRepositoryCell.swift */,
+				43E3B1252671063A00CE45F3 /* HorizontalScrollLayout.swift */,
 				43E3B0F42670E6EB00CE45F3 /* Assets.xcassets */,
 				43E3B0F62670E6EB00CE45F3 /* LaunchScreen.storyboard */,
 				43E3B0F92670E6EB00CE45F3 /* Info.plist */,
@@ -266,8 +272,10 @@
 				43E3B0EC2670E6EB00CE45F3 /* AppDelegate.swift in Sources */,
 				43E3B11C2670ED7100CE45F3 /* ProfileViewController.swift in Sources */,
 				43E3B1202670FD8300CE45F3 /* TableViewRepositoryCell.swift in Sources */,
+				43E3B1242671051400CE45F3 /* HorizontallyScrollableCell.swift in Sources */,
 				43E3B11E2670FBAC00CE45F3 /* RepositoryView.swift in Sources */,
 				43E3B1222670FD9200CE45F3 /* CollectionViewRepositoryCell.swift in Sources */,
+				43E3B1262671063A00CE45F3 /* HorizontalScrollLayout.swift in Sources */,
 				43E3B0EE2670E6EB00CE45F3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
