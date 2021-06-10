@@ -49,6 +49,7 @@ class ProfileViewController: UIViewController {
         Section(title: "Starred Repositories", repositories: MockData.starredRepos(), scrollDirection: .horizontal)
     ]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Profile"
@@ -107,6 +108,9 @@ extension ProfileViewController: UITableViewDataSource {
             return cell
         case .horizontal:
             let cell = tableView.dequeueReusableCell(withIdentifier: HorizontallyScrollableCell.reuseIdentifier, for: indexPath) as! HorizontallyScrollableCell
+            
+            cell.configure(withRepositories: section.repositories)
+            
             return cell
         }
     }

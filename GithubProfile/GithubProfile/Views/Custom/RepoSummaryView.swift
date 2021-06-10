@@ -11,7 +11,6 @@ class RepoSummaryView: UIView {
     lazy private var ownerAvatarImageView: UIImageView = {
         let imageView = RoundImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "placeholder")
         return imageView
     }()
     lazy private var ownerNameLabel: UILabel = {
@@ -74,12 +73,13 @@ class RepoSummaryView: UIView {
 
 // MARK: - Public API
 extension RepoSummaryView {
-    func set(repository: Repository) {
+    func set(_ repository: Repository) {
+        ownerAvatarImageView.image = UIImage(named: repository.ownerAvatar)
         ownerNameLabel.text = repository.ownerName
         repoNameLabel.text = repository.name
         repoDescriptionLabel.text = repository.description
         starsItemView.set(infoType: .stars, iconColor: .systemYellow, withText: "\(repository.stars)")
-        languageItemView.set(infoType: .language, iconColor: .systemOrange, withText: repository.langauge)
+        languageItemView.set(infoType: .language, iconColor: UIColor(repository.languageColor), withText: repository.langauge)
     }
 }
 

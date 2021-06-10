@@ -13,6 +13,7 @@
 		4377912526720BCF00D52D06 /* ProfileInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377912426720BCF00D52D06 /* ProfileInfoHeaderView.swift */; };
 		437791272672253A00D52D06 /* ProfileInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791262672253A00D52D06 /* ProfileInfoItemView.swift */; };
 		4377912B26722E7C00D52D06 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377912A26722E7C00D52D06 /* MockData.swift */; };
+		4377912E26723A0D00D52D06 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377912D26723A0D00D52D06 /* UIColor+Extensions.swift */; };
 		43E3B0EC2670E6EB00CE45F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B0EB2670E6EB00CE45F3 /* AppDelegate.swift */; };
 		43E3B0EE2670E6EB00CE45F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */; };
 		43E3B0F52670E6EB00CE45F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E3B0F42670E6EB00CE45F3 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		4377912426720BCF00D52D06 /* ProfileInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderView.swift; sourceTree = "<group>"; };
 		437791262672253A00D52D06 /* ProfileInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoItemView.swift; sourceTree = "<group>"; };
 		4377912A26722E7C00D52D06 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		4377912D26723A0D00D52D06 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		43E3B0E82670E6EB00CE45F3 /* Github Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Profile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E3B0EB2670E6EB00CE45F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		4377912C267239FD00D52D06 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4377912D26723A0D00D52D06 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		43E3B0DF2670E6EB00CE45F3 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +166,7 @@
 				4377912A26722E7C00D52D06 /* MockData.swift */,
 				43E3B11B2670ED7100CE45F3 /* ProfileViewController.swift */,
 				4377911F2671EC5B00D52D06 /* Views */,
+				4377912C267239FD00D52D06 /* Extensions */,
 				43E3B0F42670E6EB00CE45F3 /* Assets.xcassets */,
 				43E3B0F62670E6EB00CE45F3 /* LaunchScreen.storyboard */,
 				43E3B0F92670E6EB00CE45F3 /* Info.plist */,
@@ -312,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E3B0EC2670E6EB00CE45F3 /* AppDelegate.swift in Sources */,
+				4377912E26723A0D00D52D06 /* UIColor+Extensions.swift in Sources */,
 				437791232671FD3800D52D06 /* RepoListHeaderView.swift in Sources */,
 				43E3B11C2670ED7100CE45F3 /* ProfileViewController.swift in Sources */,
 				43E3B1202670FD8300CE45F3 /* TableViewRepositoryCell.swift in Sources */,

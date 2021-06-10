@@ -43,7 +43,7 @@ class CollectionViewRepositoryCell: UICollectionViewCell {
 
 // MARK: - Public API
 extension CollectionViewRepositoryCell {
-    func configure(withRepository repo: Repository) {
-        repoView.set(repository: repo)
+    func configure(with repository: Repository) {
+        repoView.set(repository)
     }
 }

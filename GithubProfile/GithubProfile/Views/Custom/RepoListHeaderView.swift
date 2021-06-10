@@ -13,7 +13,6 @@ class RepoListHeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         label.textColor = .label
-        label.text = "Repositories"
         return label
     }()
     lazy private var allButton: UIButton = {

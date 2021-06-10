@@ -16,12 +16,14 @@ class HorizontallyScrollableCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: HorizontalScrollLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(CollectionViewRepositoryCell.self, forCellWithReuseIdentifier: CollectionViewRepositoryCell.reuseIdentifier)
         return collectionView
     }()
+    
+    private var repositories: [Repository] = []
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -50,16 +52,23 @@ class HorizontallyScrollableCell: UITableViewCell {
 // MARK: - UICollectionViewDataSource
 extension HorizontallyScrollableCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return repositories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewRepositoryCell.reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewRepositoryCell.reuseIdentifier, for: indexPath) as! CollectionViewRepositoryCell
+        
+        let repository = repositories[indexPath.item]
+        cell.configure(with: repository)
+        
         return cell
     }
 }
 
-// MARK: - UICollectionViewDelegate
-extension HorizontallyScrollableCell: UICollectionViewDelegate {
-    
+// MARK: - Public API
+extension HorizontallyScrollableCell {
+    func configure(withRepositories repos: [Repository]) {
+        repositories = repos
+        collectionView.reloadData()
+    }
 }

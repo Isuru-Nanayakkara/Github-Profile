@@ -49,6 +49,6 @@ class TableViewRepositoryCell: UITableViewCell {
 // MARK: - Public API
 extension TableViewRepositoryCell {
     func configure(withRepository repo: Repository) {
-        repoView.set(repository: repo)
+        repoView.set(repo)
     }
 }

@@ -11,7 +11,6 @@ class ProfileInfoHeaderView: UIView {
     lazy private var avatarImageView: UIImageView = {
         let imageView = RoundImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "placeholder")
         return imageView
     }()
     lazy private var nameLabel: UILabel = {
@@ -76,6 +75,7 @@ class ProfileInfoHeaderView: UIView {
 // Public API
 extension ProfileInfoHeaderView {
     func set(profile: Profile) {
+        avatarImageView.image = UIImage(named: profile.avatar)
         nameLabel.text = profile.name
         usernameLabel.text = profile.username
         emailLabel.text = profile.email
