@@ -78,7 +78,7 @@ extension RepoSummaryView {
         ownerNameLabel.text = repository.ownerName
         repoNameLabel.text = repository.name
         repoDescriptionLabel.text = repository.description
-        starsItemView.set(infoType: .stars, iconColor: .systemYellow, withText: "\(repository.stars)")
+        starsItemView.set(infoType: .stars, iconColor: .systemYellow, withText: repository.stars.formatUsingAbbrevation())
         languageItemView.set(infoType: .language, iconColor: UIColor(repository.languageColor), withText: repository.langauge)
     }
 }
