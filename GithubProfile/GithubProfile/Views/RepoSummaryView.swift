@@ -82,7 +82,7 @@ class RepoSummaryView: UIView {
         setupOwnerNameLabel()
         setupRepoNameLabel()
         setupRepoDescriptionLabel()
-        setupInfoItemVIews()
+        setupInfoItemViews()
     }
 }
 
@@ -92,9 +92,8 @@ private extension RepoSummaryView {
         NSLayoutConstraint.activate([
             ownerAvatarImageView.heightAnchor.constraint(equalToConstant: 36),
             ownerAvatarImageView.widthAnchor.constraint(equalToConstant: 36),
-            
             ownerAvatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 14),
-            ownerAvatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 14)
+            ownerAvatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 14),
         ])
     }
     
@@ -125,7 +124,7 @@ private extension RepoSummaryView {
         ])
     }
     
-    private func setupInfoItemVIews() {
+    private func setupInfoItemViews() {
         infoViewsStackView.addArrangedSubview(starsItemView)
         infoViewsStackView.addArrangedSubview(languageItemView)
         

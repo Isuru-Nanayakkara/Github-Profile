@@ -7,6 +7,14 @@
 
 import UIKit
 
+struct Profile {
+    let name: String
+    let username: String
+    let email: String
+    let followers: Int
+    let following: Int
+}
+
 struct Section {
     enum ScrollDirection {
         case vertical
@@ -25,20 +33,23 @@ struct Repository {
 
 class ProfileViewController: UIViewController {
     lazy private var tableView: UITableView = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
+        
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.tableHeaderView = headerView
+        tableView.tableHeaderView = profileHeaderView
         tableView.separatorStyle = .none
         tableView.backgroundColor = .systemBackground
+        tableView.refreshControl = refreshControl
         tableView.register(TableViewRepositoryCell.self, forCellReuseIdentifier: TableViewRepositoryCell.reuseIdentifier)
         tableView.register(HorizontallyScrollableCell.self, forCellReuseIdentifier: HorizontallyScrollableCell.reuseIdentifier)
         return tableView
     }()
-    lazy private var headerView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 150))
-        view.backgroundColor = .systemBackground
+    lazy private var profileHeaderView: ProfileInfoHeaderView = {
+        let view = ProfileInfoHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 220))
         return view
     }()
     
@@ -53,9 +64,11 @@ class ProfileViewController: UIViewController {
         navigationItem.title = "Profile"
         
         view.backgroundColor = .systemBackground
+        
         setupTableView()
     }
     
+    // MARK: - UI Setup
     private func setupTableView() {
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
@@ -64,6 +77,13 @@ class ProfileViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    // MARK: - API
+    @objc private func fetchData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
     
 }

@@ -18,7 +18,6 @@ class RepoInfoItemView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
     lazy private var textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -26,6 +25,7 @@ class RepoInfoItemView: UIView {
         label.textColor = .label
         return label
     }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,7 +54,6 @@ class RepoInfoItemView: UIView {
             textLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
         ])
     }
-    
 }
 
 // MARK: - Public API
