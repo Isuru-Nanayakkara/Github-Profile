@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     }()
     lazy private var headerView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 150))
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = .systemBackground
         return view
     }()
     
@@ -99,8 +99,14 @@ extension ProfileViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section].title
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = RepoListHeaderView()
+        headerView.title = sections[section].title
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
