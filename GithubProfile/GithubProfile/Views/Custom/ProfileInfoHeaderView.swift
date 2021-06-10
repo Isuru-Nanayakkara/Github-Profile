@@ -19,7 +19,6 @@ class ProfileInfoHeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         label.textColor = .label
-        label.text = "Isuru Nanayakkara"
         return label
     }()
     lazy private var usernameLabel: UILabel = {
@@ -27,7 +26,6 @@ class ProfileInfoHeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .subheadline).withSize(16)
         label.textColor = .secondaryLabel
-        label.text = "Isuru-Nanayakkara"
         return label
     }()
     lazy private var emailLabel: UILabel = {
@@ -35,7 +33,6 @@ class ProfileInfoHeaderView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         label.textColor = .label
-        label.text = "isuru.nan@gmail.com"
         return label
     }()
     private lazy var infoViewsStackView: UIStackView = {
@@ -45,16 +42,8 @@ class ProfileInfoHeaderView: UIView {
         stackView.spacing = 100
         return stackView
     }()
-    private lazy var followersInfoView: ProfileInfoItemView = {
-        let view = ProfileInfoItemView()
-        view.set(text: "Followers", withCount: 35)
-        return view
-    }()
-    private lazy var followingInfoView: ProfileInfoItemView = {
-        let view = ProfileInfoItemView()
-        view.set(text: "Following", withCount: 19)
-        return view
-    }()
+    private lazy var followersInfoView = ProfileInfoItemView()
+    private lazy var followingInfoView = ProfileInfoItemView()
     
     
     override init(frame: CGRect) {
@@ -81,6 +70,22 @@ class ProfileInfoHeaderView: UIView {
         setupProfileInfoItemViews()
     }
     
+    
+}
+
+// Public API
+extension ProfileInfoHeaderView {
+    func set(profile: Profile) {
+        nameLabel.text = profile.name
+        usernameLabel.text = profile.username
+        emailLabel.text = profile.email
+        followersInfoView.set(text: "Followers", withCount: profile.followers)
+        followingInfoView.set(text: "Following", withCount: profile.following)
+    }
+}
+
+// UI Setup
+private extension ProfileInfoHeaderView {
     private func setupAvatarImageView() {
         addSubview(avatarImageView)
         NSLayoutConstraint.activate([
@@ -127,12 +132,5 @@ class ProfileInfoHeaderView: UIView {
             infoViewsStackView.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 20),
             infoViewsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 14),
         ])
-    }
-}
-
-// Public API
-extension ProfileInfoHeaderView {
-    func set(profile: Profile) {
-        
     }
 }

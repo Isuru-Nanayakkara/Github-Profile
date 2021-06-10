@@ -12,6 +12,7 @@
 		437791232671FD3800D52D06 /* RepoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791222671FD3800D52D06 /* RepoListHeaderView.swift */; };
 		4377912526720BCF00D52D06 /* ProfileInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377912426720BCF00D52D06 /* ProfileInfoHeaderView.swift */; };
 		437791272672253A00D52D06 /* ProfileInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791262672253A00D52D06 /* ProfileInfoItemView.swift */; };
+		4377912B26722E7C00D52D06 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377912A26722E7C00D52D06 /* MockData.swift */; };
 		43E3B0EC2670E6EB00CE45F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B0EB2670E6EB00CE45F3 /* AppDelegate.swift */; };
 		43E3B0EE2670E6EB00CE45F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */; };
 		43E3B0F52670E6EB00CE45F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E3B0F42670E6EB00CE45F3 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		437791222671FD3800D52D06 /* RepoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListHeaderView.swift; sourceTree = "<group>"; };
 		4377912426720BCF00D52D06 /* ProfileInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderView.swift; sourceTree = "<group>"; };
 		437791262672253A00D52D06 /* ProfileInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoItemView.swift; sourceTree = "<group>"; };
+		4377912A26722E7C00D52D06 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		43E3B0E82670E6EB00CE45F3 /* Github Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Profile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E3B0EB2670E6EB00CE45F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,15 @@
 		4377911F2671EC5B00D52D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4377912926722D1900D52D06 /* Cells */,
+				4377912826722D1000D52D06 /* Custom */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4377912826722D1000D52D06 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
 				4377912426720BCF00D52D06 /* ProfileInfoHeaderView.swift */,
 				437791262672253A00D52D06 /* ProfileInfoItemView.swift */,
 				437791222671FD3800D52D06 /* RepoListHeaderView.swift */,
@@ -104,7 +115,17 @@
 				437791202671ECEE00D52D06 /* RepoInfoItemView.swift */,
 				4377911D2671DD4300D52D06 /* RoundImageView.swift */,
 			);
-			path = Views;
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		4377912926722D1900D52D06 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				43E3B11F2670FD8300CE45F3 /* TableViewRepositoryCell.swift */,
+				43E3B1232671051400CE45F3 /* HorizontallyScrollableCell.swift */,
+				43E3B1212670FD9200CE45F3 /* CollectionViewRepositoryCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		43E3B0DF2670E6EB00CE45F3 = {
@@ -132,10 +153,8 @@
 			children = (
 				43E3B0EB2670E6EB00CE45F3 /* AppDelegate.swift */,
 				43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */,
+				4377912A26722E7C00D52D06 /* MockData.swift */,
 				43E3B11B2670ED7100CE45F3 /* ProfileViewController.swift */,
-				43E3B11F2670FD8300CE45F3 /* TableViewRepositoryCell.swift */,
-				43E3B1232671051400CE45F3 /* HorizontallyScrollableCell.swift */,
-				43E3B1212670FD9200CE45F3 /* CollectionViewRepositoryCell.swift */,
 				4377911F2671EC5B00D52D06 /* Views */,
 				43E3B0F42670E6EB00CE45F3 /* Assets.xcassets */,
 				43E3B0F62670E6EB00CE45F3 /* LaunchScreen.storyboard */,
@@ -297,6 +316,7 @@
 				43E3B11C2670ED7100CE45F3 /* ProfileViewController.swift in Sources */,
 				43E3B1202670FD8300CE45F3 /* TableViewRepositoryCell.swift in Sources */,
 				437791212671ECEE00D52D06 /* RepoInfoItemView.swift in Sources */,
+				4377912B26722E7C00D52D06 /* MockData.swift in Sources */,
 				437791272672253A00D52D06 /* ProfileInfoItemView.swift in Sources */,
 				43E3B1242671051400CE45F3 /* HorizontallyScrollableCell.swift in Sources */,
 				43E3B11E2670FBAC00CE45F3 /* RepoSummaryView.swift in Sources */,

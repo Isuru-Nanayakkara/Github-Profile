@@ -19,7 +19,6 @@ class RepoSummaryView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .subheadline).withSize(16)
         label.textColor = .secondaryLabel
-        label.text = "Isuru-Nanayakkara"
         return label
     }()
     lazy private var repoNameLabel: UILabel = {
@@ -27,7 +26,6 @@ class RepoSummaryView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textColor = .label
-        label.text = "InstagramAuthViewController"
         return label
     }()
     lazy private var repoDescriptionLabel: UILabel = {
@@ -36,7 +34,6 @@ class RepoSummaryView: UIView {
         label.font = UIFont.preferredFont(forTextStyle: .body).withSize(15)
         label.textColor = .secondaryLabel
         label.numberOfLines = 2
-        label.text = "A ViewController for Instagram authentication made with love by Isuru."
         return label
     }()
     private lazy var infoViewsStackView: UIStackView = {
@@ -46,23 +43,12 @@ class RepoSummaryView: UIView {
         stackView.spacing = 80
         return stackView
     }()
-    private lazy var starsItemView: RepoInfoItemView = {
-        let view = RepoInfoItemView()
-        view.set(infoType: .stars, iconColor: .systemYellow, withText: "458")
-        return view
-    }()
-    private lazy var languageItemView: RepoInfoItemView = {
-        let view = RepoInfoItemView()
-        view.set(infoType: .language, iconColor: .systemOrange, withText: "Swift")
-        return view
-    }()
+    private lazy var starsItemView = RepoInfoItemView()
+    private lazy var languageItemView = RepoInfoItemView()
     
     
-    private var repository: Repository!
-    
-    init(repository: Repository) {
-        self.repository = repository
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         commonInit()
     }
     
@@ -86,6 +72,18 @@ class RepoSummaryView: UIView {
     }
 }
 
+// MARK: - Public API
+extension RepoSummaryView {
+    func set(repository: Repository) {
+        ownerNameLabel.text = repository.ownerName
+        repoNameLabel.text = repository.name
+        repoDescriptionLabel.text = repository.description
+        starsItemView.set(infoType: .stars, iconColor: .systemYellow, withText: "\(repository.stars)")
+        languageItemView.set(infoType: .language, iconColor: .systemOrange, withText: repository.langauge)
+    }
+}
+
+// UI Setup
 private extension RepoSummaryView {
     private func setupAvatarImageView() {
         addSubview(ownerAvatarImageView)

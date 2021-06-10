@@ -7,29 +7,19 @@
 
 import UIKit
 
-struct Profile {
-    let name: String
-    let username: String
-    let email: String
-    let followers: Int
-    let following: Int
-}
 
-struct Section {
-    enum ScrollDirection {
-        case vertical
-        case horizontal
+extension ProfileViewController {
+    struct Section {
+        enum ScrollDirection {
+            case vertical
+            case horizontal
+        }
+        
+        let title: String
+        let repositories: [Repository]
+        let scrollDirection: ScrollDirection
     }
-    
-    let title: String
-    let repositories: [Repository]
-    let scrollDirection: ScrollDirection
 }
-
-struct Repository {
-    let name: String
-}
-
 
 class ProfileViewController: UIViewController {
     lazy private var tableView: UITableView = {
@@ -54,9 +44,9 @@ class ProfileViewController: UIViewController {
     }()
     
     private let sections: [Section] = [
-        .init(title: "Pinned", repositories: [.init(name: "ActivityIndicatorOverlayView"), .init(name: "InstagramAuthViewController"), .init(name: "CountrySelectorView")], scrollDirection: .vertical),
-        .init(title: "Top Repositories", repositories: [.init(name: "HttpManager"), .init(name: "Reach"), .init(name: "Broadband-Usage-Meter-OSX")], scrollDirection: .horizontal),
-        .init(title: "Starred Repositories", repositories: [.init(name: "RESideMenu"), .init(name: "MMAppSwitcher"), .init(name: "SimpleAuth")], scrollDirection: .horizontal),
+        Section(title: "Pinned", repositories: MockData.pinnedRepos(), scrollDirection: .vertical),
+        Section(title: "Top Repositories", repositories: MockData.topRepos(), scrollDirection: .horizontal),
+        Section(title: "Starred Repositories", repositories: MockData.starredRepos(), scrollDirection: .horizontal)
     ]
     
     override func viewDidLoad() {
@@ -66,6 +56,7 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         setupTableView()
+        profileHeaderView.set(profile: MockData.user())
     }
     
     // MARK: - UI Setup
@@ -109,6 +100,10 @@ extension ProfileViewController: UITableViewDataSource {
         switch section.scrollDirection {
         case .vertical:
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewRepositoryCell.reuseIdentifier, for: indexPath) as! TableViewRepositoryCell
+            
+            let repository = section.repositories[indexPath.row]
+            cell.configure(withRepository: repository)
+            
             return cell
         case .horizontal:
             let cell = tableView.dequeueReusableCell(withIdentifier: HorizontallyScrollableCell.reuseIdentifier, for: indexPath) as! HorizontallyScrollableCell
