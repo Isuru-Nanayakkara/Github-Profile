@@ -23,14 +23,15 @@ class TableViewRepositoryCell: UITableViewCell {
     }
     
     private func commonInit() {
-        let view = RepositoryView(repository: .init(name: "Test"))
+        selectionStyle = .none
+        contentView.backgroundColor = .systemBackground
+        
+        let view = RepoSummaryView(repository: .init(name: "Test"))
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         
         let padding: CGFloat = 14
         NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: 80),
-            
             view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             view.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),

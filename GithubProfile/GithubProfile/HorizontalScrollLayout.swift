@@ -20,8 +20,7 @@ class HorizontalScrollLayout: UICollectionViewFlowLayout {
     
     private func setup() {
         scrollDirection = .horizontal
-//        minimumLineSpacing = 14
-        itemSize = CGSize(width: 150, height: 80)
+        minimumLineSpacing = 0
+        itemSize = CGSize(width: 280, height: 220)
     }
 }
-

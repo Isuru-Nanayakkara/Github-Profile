@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4377911E2671DD4300D52D06 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377911D2671DD4300D52D06 /* RoundImageView.swift */; };
+		437791212671ECEE00D52D06 /* RepoInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791202671ECEE00D52D06 /* RepoInfoItemView.swift */; };
 		43E3B0EC2670E6EB00CE45F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B0EB2670E6EB00CE45F3 /* AppDelegate.swift */; };
 		43E3B0EE2670E6EB00CE45F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */; };
 		43E3B0F52670E6EB00CE45F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E3B0F42670E6EB00CE45F3 /* Assets.xcassets */; };
@@ -14,7 +16,7 @@
 		43E3B1032670E6EC00CE45F3 /* GithubProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B1022670E6EC00CE45F3 /* GithubProfileTests.swift */; };
 		43E3B10E2670E6EC00CE45F3 /* GithubProfileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B10D2670E6EC00CE45F3 /* GithubProfileUITests.swift */; };
 		43E3B11C2670ED7100CE45F3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B11B2670ED7100CE45F3 /* ProfileViewController.swift */; };
-		43E3B11E2670FBAC00CE45F3 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B11D2670FBAC00CE45F3 /* RepositoryView.swift */; };
+		43E3B11E2670FBAC00CE45F3 /* RepoSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B11D2670FBAC00CE45F3 /* RepoSummaryView.swift */; };
 		43E3B1202670FD8300CE45F3 /* TableViewRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B11F2670FD8300CE45F3 /* TableViewRepositoryCell.swift */; };
 		43E3B1222670FD9200CE45F3 /* CollectionViewRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B1212670FD9200CE45F3 /* CollectionViewRepositoryCell.swift */; };
 		43E3B1242671051400CE45F3 /* HorizontallyScrollableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3B1232671051400CE45F3 /* HorizontallyScrollableCell.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4377911D2671DD4300D52D06 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		437791202671ECEE00D52D06 /* RepoInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoInfoItemView.swift; sourceTree = "<group>"; };
 		43E3B0E82670E6EB00CE45F3 /* Github Profile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github Profile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E3B0EB2670E6EB00CE45F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +56,7 @@
 		43E3B10D2670E6EC00CE45F3 /* GithubProfileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubProfileUITests.swift; sourceTree = "<group>"; };
 		43E3B10F2670E6EC00CE45F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43E3B11B2670ED7100CE45F3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		43E3B11D2670FBAC00CE45F3 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
+		43E3B11D2670FBAC00CE45F3 /* RepoSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSummaryView.swift; sourceTree = "<group>"; };
 		43E3B11F2670FD8300CE45F3 /* TableViewRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewRepositoryCell.swift; sourceTree = "<group>"; };
 		43E3B1212670FD9200CE45F3 /* CollectionViewRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewRepositoryCell.swift; sourceTree = "<group>"; };
 		43E3B1232671051400CE45F3 /* HorizontallyScrollableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontallyScrollableCell.swift; sourceTree = "<group>"; };
@@ -84,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4377911F2671EC5B00D52D06 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43E3B11D2670FBAC00CE45F3 /* RepoSummaryView.swift */,
+				437791202671ECEE00D52D06 /* RepoInfoItemView.swift */,
+				4377911D2671DD4300D52D06 /* RoundImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		43E3B0DF2670E6EB00CE45F3 = {
 			isa = PBXGroup;
 			children = (
@@ -110,14 +124,14 @@
 				43E3B0EB2670E6EB00CE45F3 /* AppDelegate.swift */,
 				43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */,
 				43E3B11B2670ED7100CE45F3 /* ProfileViewController.swift */,
-				43E3B11D2670FBAC00CE45F3 /* RepositoryView.swift */,
-				43E3B1232671051400CE45F3 /* HorizontallyScrollableCell.swift */,
 				43E3B11F2670FD8300CE45F3 /* TableViewRepositoryCell.swift */,
+				43E3B1232671051400CE45F3 /* HorizontallyScrollableCell.swift */,
 				43E3B1212670FD9200CE45F3 /* CollectionViewRepositoryCell.swift */,
-				43E3B1252671063A00CE45F3 /* HorizontalScrollLayout.swift */,
+				4377911F2671EC5B00D52D06 /* Views */,
 				43E3B0F42670E6EB00CE45F3 /* Assets.xcassets */,
 				43E3B0F62670E6EB00CE45F3 /* LaunchScreen.storyboard */,
 				43E3B0F92670E6EB00CE45F3 /* Info.plist */,
+				43E3B1252671063A00CE45F3 /* HorizontalScrollLayout.swift */,
 			);
 			path = GithubProfile;
 			sourceTree = "<group>";
@@ -272,11 +286,13 @@
 				43E3B0EC2670E6EB00CE45F3 /* AppDelegate.swift in Sources */,
 				43E3B11C2670ED7100CE45F3 /* ProfileViewController.swift in Sources */,
 				43E3B1202670FD8300CE45F3 /* TableViewRepositoryCell.swift in Sources */,
+				437791212671ECEE00D52D06 /* RepoInfoItemView.swift in Sources */,
 				43E3B1242671051400CE45F3 /* HorizontallyScrollableCell.swift in Sources */,
-				43E3B11E2670FBAC00CE45F3 /* RepositoryView.swift in Sources */,
+				43E3B11E2670FBAC00CE45F3 /* RepoSummaryView.swift in Sources */,
 				43E3B1222670FD9200CE45F3 /* CollectionViewRepositoryCell.swift in Sources */,
 				43E3B1262671063A00CE45F3 /* HorizontalScrollLayout.swift in Sources */,
 				43E3B0EE2670E6EB00CE45F3 /* SceneDelegate.swift in Sources */,
+				4377911E2671DD4300D52D06 /* RoundImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

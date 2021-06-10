@@ -34,16 +34,14 @@ class HorizontallyScrollableCell: UITableViewCell {
     }
     
     private func commonInit() {
-        contentView.addSubview(collectionView)
+        selectionStyle = .none
         
-        let padding: CGFloat = 0
+        contentView.addSubview(collectionView)
         NSLayoutConstraint.activate([
-            collectionView.heightAnchor.constraint(equalToConstant: 80),
-            
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
 
@@ -52,7 +50,7 @@ class HorizontallyScrollableCell: UITableViewCell {
 // MARK: - UICollectionViewDataSource
 extension HorizontallyScrollableCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

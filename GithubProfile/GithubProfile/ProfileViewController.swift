@@ -30,8 +30,8 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableHeaderView = headerView
-        tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .systemBackground
         tableView.register(TableViewRepositoryCell.self, forCellReuseIdentifier: TableViewRepositoryCell.reuseIdentifier)
         tableView.register(HorizontallyScrollableCell.self, forCellReuseIdentifier: HorizontallyScrollableCell.reuseIdentifier)
         return tableView
@@ -101,6 +101,10 @@ extension ProfileViewController: UITableViewDataSource {
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].title
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
