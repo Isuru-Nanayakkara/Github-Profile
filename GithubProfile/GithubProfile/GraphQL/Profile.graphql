@@ -1,0 +1,62 @@
+query Profile {
+  viewer {
+    name
+    avatarUrl
+    login
+    url
+    email
+    followers {
+      totalCount
+    }
+    following {
+      totalCount
+    }
+    pinnedItems(first: 3, types: REPOSITORY) {
+      nodes {
+        ... on Repository {
+          owner {
+            login
+            avatarUrl
+          }
+          name
+          description
+          stargazerCount
+          primaryLanguage {
+            name
+            color
+          }
+        }
+      }
+    }
+    repositories(first: 10) {
+      nodes {
+        owner {
+          login
+          avatarUrl
+        }
+        name
+        description
+        stargazerCount
+        primaryLanguage {
+          name
+          color
+        }
+      }
+    }
+    starredRepositories(last: 10) {
+      nodes {
+        owner {
+          login
+          avatarUrl
+        }
+        name
+        description
+        stargazerCount
+        primaryLanguage {
+          name
+          color
+        }
+      }
+    }
+  }
+}

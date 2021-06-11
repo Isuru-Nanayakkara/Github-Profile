@@ -73,8 +73,15 @@ class ProfileViewController: UIViewController {
     
     // MARK: - API
     @objc private func fetchData() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        GraphQLClient.shared.apollo.fetch(query: ProfileQuery()) { result in
             self.tableView.refreshControl?.endRefreshing()
+            
+            switch result {
+            case .success(let graphQLResult):
+                print("✅ Success! Result: \(graphQLResult)")
+            case .failure(let error):
+                print("💥 Failure! Error: \(error)")
+            }
         }
     }
     
