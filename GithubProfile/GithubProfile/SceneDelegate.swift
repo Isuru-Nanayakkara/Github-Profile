@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: ProfileViewController())
+        window?.rootViewController = makeProfileViewController()
         window?.makeKeyAndVisible()
     }
 
@@ -53,4 +53,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
+}
+
+func makeProfileViewController() -> UIViewController {
+    let api = GithubGraphQLAPI()
+    let apiService = APIService(api: api)
+    let presenter = ProfilePresenter(api: apiService)
+    let profileViewController = ProfileViewController(presenter: presenter)
+    return UINavigationController(rootViewController: profileViewController)
 }

@@ -14,4 +14,7 @@ struct Profile {
     let email: String
     let followers: Int
     let following: Int
+    let pinnedRepos: [Repository]
+    let topRepos: [Repository]
+    let starredRepos: [Repository]
 }

@@ -17,6 +17,9 @@
 		435A79002673719B00AE315C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 435A78FF2673719B00AE315C /* Apollo */; };
 		435A79022673719B00AE315C /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 435A79012673719B00AE315C /* ApolloSQLite */; };
 		435A79042673722E00AE315C /* GraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A79032673722E00AE315C /* GraphQLClient.swift */; };
+		435A7908267379FA00AE315C /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7907267379FA00AE315C /* GithubAPI.swift */; };
+		435A790A26737A2200AE315C /* GithubGraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A790926737A2200AE315C /* GithubGraphQLAPI.swift */; };
+		435A790C26737A3700AE315C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A790B26737A3700AE315C /* APIService.swift */; };
 		4377911E2671DD4300D52D06 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377911D2671DD4300D52D06 /* RoundImageView.swift */; };
 		437791212671ECEE00D52D06 /* RepoInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791202671ECEE00D52D06 /* RepoInfoItemView.swift */; };
 		437791232671FD3800D52D06 /* RepoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791222671FD3800D52D06 /* RepoListHeaderView.swift */; };
@@ -66,6 +69,9 @@
 		435A78F426736CC600AE315C /* Profile.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Profile.graphql; sourceTree = "<group>"; };
 		435A78FA26736F2A00AE315C /* QueryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryManager.swift; sourceTree = "<group>"; };
 		435A79032673722E00AE315C /* GraphQLClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClient.swift; sourceTree = "<group>"; };
+		435A7907267379FA00AE315C /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
+		435A790926737A2200AE315C /* GithubGraphQLAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubGraphQLAPI.swift; sourceTree = "<group>"; };
+		435A790B26737A3700AE315C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		4377911D2671DD4300D52D06 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		437791202671ECEE00D52D06 /* RepoInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoInfoItemView.swift; sourceTree = "<group>"; };
 		437791222671FD3800D52D06 /* RepoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListHeaderView.swift; sourceTree = "<group>"; };
@@ -166,6 +172,23 @@
 			path = GraphQL;
 			sourceTree = "<group>";
 		};
+		435A7905267379BA00AE315C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				435A790B26737A3700AE315C /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		435A7906267379C500AE315C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				435A7907267379FA00AE315C /* GithubAPI.swift */,
+				435A790926737A2200AE315C /* GithubGraphQLAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		4377911F2671EC5B00D52D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +260,8 @@
 				435A78EB26736A8500AE315C /* Presenters */,
 				435A78E926736A6D00AE315C /* Models */,
 				4377911F2671EC5B00D52D06 /* Views */,
+				435A7905267379BA00AE315C /* Services */,
+				435A7906267379C500AE315C /* API */,
 				4347261A26735B1A00826F2B /* Utils */,
 				4377912C267239FD00D52D06 /* Extensions */,
 				435A78F226736C2C00AE315C /* GraphQL */,
@@ -432,12 +457,14 @@
 				4347261E26735DA500826F2B /* AssetsFactory.swift in Sources */,
 				43E3B11C2670ED7100CE45F3 /* ProfileViewController.swift in Sources */,
 				43E3B1202670FD8300CE45F3 /* TableViewRepositoryCell.swift in Sources */,
+				435A7908267379FA00AE315C /* GithubAPI.swift in Sources */,
 				437791302672420600D52D06 /* Int+Extensions.swift in Sources */,
 				437791212671ECEE00D52D06 /* RepoInfoItemView.swift in Sources */,
 				4377912B26722E7C00D52D06 /* MockData.swift in Sources */,
 				4347261C26735B4000826F2B /* ColorFactory.swift in Sources */,
 				435A79042673722E00AE315C /* GraphQLClient.swift in Sources */,
 				437791272672253A00D52D06 /* ProfileInfoItemView.swift in Sources */,
+				435A790A26737A2200AE315C /* GithubGraphQLAPI.swift in Sources */,
 				435A78ED26736AE200AE315C /* ProfilePresenter.swift in Sources */,
 				43E3B1242671051400CE45F3 /* HorizontallyScrollableCell.swift in Sources */,
 				435A78F126736B3000AE315C /* Repository.swift in Sources */,
@@ -445,6 +472,7 @@
 				43E3B1222670FD9200CE45F3 /* CollectionViewRepositoryCell.swift in Sources */,
 				43E3B1262671063A00CE45F3 /* HorizontalScrollLayout.swift in Sources */,
 				43E3B0EE2670E6EB00CE45F3 /* SceneDelegate.swift in Sources */,
+				435A790C26737A3700AE315C /* APIService.swift in Sources */,
 				4377911E2671DD4300D52D06 /* RoundImageView.swift in Sources */,
 				435A78FB26736F2A00AE315C /* QueryManager.swift in Sources */,
 				4377912526720BCF00D52D06 /* ProfileInfoHeaderView.swift in Sources */,

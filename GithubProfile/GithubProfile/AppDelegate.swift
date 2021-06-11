@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else {
             window = UIWindow(frame: UIScreen.main.bounds)
-            window?.rootViewController = UINavigationController(rootViewController: ProfileViewController())
+            window?.rootViewController = makeProfileViewController()
             window?.makeKeyAndVisible()
         }
         

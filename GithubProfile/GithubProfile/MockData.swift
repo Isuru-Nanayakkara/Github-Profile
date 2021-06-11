@@ -9,7 +9,7 @@ import Foundation
 
 struct MockData {
     static func user() -> Profile {
-        return Profile(avatar: "placeholder", name: "Isuru Nanayakkara", username: "Isuru-Nanayakkara", email: "isuru.nan@gmail.com", followers: 41, following: 0)
+        return Profile(avatar: "placeholder", name: "Isuru Nanayakkara", username: "Isuru-Nanayakkara", email: "isuru.nan@gmail.com", followers: 41, following: 0, pinnedRepos: pinnedRepos(), topRepos: topRepos(), starredRepos: starredRepos())
     }
     
     static func pinnedRepos() -> [Repository] {

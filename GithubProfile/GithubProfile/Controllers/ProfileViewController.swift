@@ -24,7 +24,7 @@ extension ProfileViewController {
 class ProfileViewController: UIViewController {
     lazy private var tableView: UITableView = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(fetchProfile), for: .valueChanged)
         
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,22 +42,47 @@ class ProfileViewController: UIViewController {
         let view = ProfileInfoHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 220))
         return view
     }()
+    private var sections: [Section] = []
+    private var presenter: ProfilePresenter!
     
-    private let sections: [Section] = [
-        Section(title: "Pinned", repositories: MockData.pinnedRepos(), scrollDirection: .vertical),
-        Section(title: "Top Repositories", repositories: MockData.topRepos(), scrollDirection: .horizontal),
-        Section(title: "Starred Repositories", repositories: MockData.starredRepos(), scrollDirection: .horizontal)
-    ]
     
+    init(presenter: ProfilePresenter) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.presenter = presenter
+        self.presenter.setDelegate(self)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Profile"
-        
         view.backgroundColor = ColorFactory.systemBackground
         
+        // UI setup
         setupTableView()
-        profileHeaderView.set(profile: MockData.user())
+        
+        // Data loading
+        fetchProfile()
+    }
+    
+    private func render(with profile: Profile) {
+        profileHeaderView.set(profile: profile)
+        
+        sections.removeAll()
+        if !profile.pinnedRepos.isEmpty {
+            sections.append(Section(title: "Pinned", repositories: profile.pinnedRepos, scrollDirection: .vertical))
+        }
+        if !profile.topRepos.isEmpty {
+            sections.append(Section(title: "Top Repositories", repositories: profile.topRepos, scrollDirection: .horizontal))
+        }
+        if !profile.starredRepos.isEmpty {
+            sections.append(Section(title: "Starred Repositories", repositories: profile.starredRepos, scrollDirection: .horizontal))
+        }
+        tableView.reloadData()
     }
     
     // MARK: - UI Setup
@@ -72,19 +97,23 @@ class ProfileViewController: UIViewController {
     }
     
     // MARK: - API
-    @objc private func fetchData() {
-        GraphQLClient.shared.apollo.fetch(query: ProfileQuery()) { result in
-            self.tableView.refreshControl?.endRefreshing()
-            
-            switch result {
-            case .success(let graphQLResult):
-                print("✅ Success! Result: \(graphQLResult)")
-            case .failure(let error):
-                print("💥 Failure! Error: \(error)")
-            }
-        }
+    @objc private func fetchProfile() {
+        presenter.fetchProfileData()
     }
     
+}
+
+// MARK: - ProfilePresenterDelegate
+extension ProfileViewController: ProfilePresenterDelegate {
+    func didFetchProfileData(_ profile: Profile) {
+        tableView.refreshControl?.endRefreshing()
+        render(with: profile)
+    }
+    
+    func errorOccurred(_ error: Error) {
+        tableView.refreshControl?.endRefreshing()
+        print("💥 Error: \(error.localizedDescription)")
+    }
 }
 
 // MARK: - UITableViewDataSource
