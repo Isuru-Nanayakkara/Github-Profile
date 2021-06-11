@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4347261C26735B4000826F2B /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4347261B26735B4000826F2B /* ColorFactory.swift */; };
 		4347261E26735DA500826F2B /* AssetsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4347261D26735DA500826F2B /* AssetsFactory.swift */; };
+		435A78ED26736AE200AE315C /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A78EC26736AE200AE315C /* ProfilePresenter.swift */; };
+		435A78EF26736B1600AE315C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A78EE26736B1600AE315C /* Profile.swift */; };
+		435A78F126736B3000AE315C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A78F026736B3000AE315C /* Repository.swift */; };
 		4377911E2671DD4300D52D06 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377911D2671DD4300D52D06 /* RoundImageView.swift */; };
 		437791212671ECEE00D52D06 /* RepoInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791202671ECEE00D52D06 /* RepoInfoItemView.swift */; };
 		437791232671FD3800D52D06 /* RepoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791222671FD3800D52D06 /* RepoListHeaderView.swift */; };
@@ -51,6 +54,9 @@
 /* Begin PBXFileReference section */
 		4347261B26735B4000826F2B /* ColorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactory.swift; sourceTree = "<group>"; };
 		4347261D26735DA500826F2B /* AssetsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsFactory.swift; sourceTree = "<group>"; };
+		435A78EC26736AE200AE315C /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		435A78EE26736B1600AE315C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		435A78F026736B3000AE315C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		4377911D2671DD4300D52D06 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		437791202671ECEE00D52D06 /* RepoInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoInfoItemView.swift; sourceTree = "<group>"; };
 		437791222671FD3800D52D06 /* RepoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListHeaderView.swift; sourceTree = "<group>"; };
@@ -111,6 +117,31 @@
 				4347261D26735DA500826F2B /* AssetsFactory.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		435A78E926736A6D00AE315C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				435A78EE26736B1600AE315C /* Profile.swift */,
+				435A78F026736B3000AE315C /* Repository.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		435A78EA26736A7900AE315C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43E3B11B2670ED7100CE45F3 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		435A78EB26736A8500AE315C /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				435A78EC26736AE200AE315C /* ProfilePresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		4377911F2671EC5B00D52D06 /* Views */ = {
@@ -180,7 +211,9 @@
 				43E3B0EB2670E6EB00CE45F3 /* AppDelegate.swift */,
 				43E3B0ED2670E6EB00CE45F3 /* SceneDelegate.swift */,
 				4377912A26722E7C00D52D06 /* MockData.swift */,
-				43E3B11B2670ED7100CE45F3 /* ProfileViewController.swift */,
+				435A78EA26736A7900AE315C /* Controllers */,
+				435A78EB26736A8500AE315C /* Presenters */,
+				435A78E926736A6D00AE315C /* Models */,
 				4377911F2671EC5B00D52D06 /* Views */,
 				4347261A26735B1A00826F2B /* Utils */,
 				4377912C267239FD00D52D06 /* Extensions */,
@@ -340,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E3B0EC2670E6EB00CE45F3 /* AppDelegate.swift in Sources */,
+				435A78EF26736B1600AE315C /* Profile.swift in Sources */,
 				4377912E26723A0D00D52D06 /* UIColor+Extensions.swift in Sources */,
 				437791232671FD3800D52D06 /* RepoListHeaderView.swift in Sources */,
 				4347261E26735DA500826F2B /* AssetsFactory.swift in Sources */,
@@ -350,7 +384,9 @@
 				4377912B26722E7C00D52D06 /* MockData.swift in Sources */,
 				4347261C26735B4000826F2B /* ColorFactory.swift in Sources */,
 				437791272672253A00D52D06 /* ProfileInfoItemView.swift in Sources */,
+				435A78ED26736AE200AE315C /* ProfilePresenter.swift in Sources */,
 				43E3B1242671051400CE45F3 /* HorizontallyScrollableCell.swift in Sources */,
+				435A78F126736B3000AE315C /* Repository.swift in Sources */,
 				43E3B11E2670FBAC00CE45F3 /* RepoSummaryView.swift in Sources */,
 				43E3B1222670FD9200CE45F3 /* CollectionViewRepositoryCell.swift in Sources */,
 				43E3B1262671063A00CE45F3 /* HorizontalScrollLayout.swift in Sources */,

@@ -7,25 +7,6 @@
 
 import Foundation
 
-struct Profile {
-    let avatar: String
-    let name: String
-    let username: String
-    let email: String
-    let followers: Int
-    let following: Int
-}
-
-struct Repository {
-    let ownerAvatar: String
-    let ownerName: String
-    let name: String
-    let description: String?
-    let stars: Int
-    let langauge: String
-    let languageColor: String
-}
-
 struct MockData {
     static func user() -> Profile {
         return Profile(avatar: "placeholder", name: "Isuru Nanayakkara", username: "Isuru-Nanayakkara", email: "isuru.nan@gmail.com", followers: 41, following: 0)
