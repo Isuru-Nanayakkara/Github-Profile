@@ -178,19 +178,10 @@
 			path = GraphQL;
 			sourceTree = "<group>";
 		};
-		435A7905267379BA00AE315C /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				435A790B26737A3700AE315C /* APIService.swift */,
-				435A790D2673947F00AE315C /* CacheService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		435A7906267379C500AE315C /* API */ = {
 			isa = PBXGroup;
 			children = (
-				435A7907267379FA00AE315C /* GithubAPI.swift */,
+				435A790B26737A3700AE315C /* APIService.swift */,
 				435A790926737A2200AE315C /* GithubGraphQLAPI.swift */,
 			);
 			path = API;
@@ -199,10 +190,19 @@
 		435A790F2673949F00AE315C /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				435A7910267394B800AE315C /* Cache.swift */,
+				435A790D2673947F00AE315C /* CacheService.swift */,
 				435A7912267397FA00AE315C /* DiskCache.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		435A79162673B16900AE315C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				435A7907267379FA00AE315C /* GithubAPI.swift */,
+				435A7910267394B800AE315C /* Cache.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		4377911F2671EC5B00D52D06 /* Views */ = {
@@ -276,9 +276,9 @@
 				435A78EB26736A8500AE315C /* Presenters */,
 				435A78E926736A6D00AE315C /* Models */,
 				4377911F2671EC5B00D52D06 /* Views */,
-				435A7905267379BA00AE315C /* Services */,
 				435A7906267379C500AE315C /* API */,
 				435A790F2673949F00AE315C /* Cache */,
+				435A79162673B16900AE315C /* Protocols */,
 				4347261A26735B1A00826F2B /* Utils */,
 				4377912C267239FD00D52D06 /* Extensions */,
 				435A78F226736C2C00AE315C /* GraphQL */,
