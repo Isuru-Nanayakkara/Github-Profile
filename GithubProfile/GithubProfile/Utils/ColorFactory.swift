@@ -36,7 +36,7 @@ struct ColorFactory {
         if #available(iOS 13.0, *) {
             return .tertiarySystemBackground
         } else {
-            return .lightGray
+            return .white
         }
     }
     
