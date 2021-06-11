@@ -16,7 +16,7 @@ class HorizontallyScrollableCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: HorizontalScrollLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = ColorFactory.systemBackground
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(CollectionViewRepositoryCell.self, forCellWithReuseIdentifier: CollectionViewRepositoryCell.reuseIdentifier)
         return collectionView

@@ -17,21 +17,21 @@ class RepoSummaryView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .subheadline).withSize(16)
-        label.textColor = .secondaryLabel
+        label.textColor = ColorFactory.secondaryLabel
         return label
     }()
     lazy private var repoNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .headline)
-        label.textColor = .label
+        label.textColor = ColorFactory.label
         return label
     }()
     lazy private var repoDescriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .body).withSize(15)
-        label.textColor = .secondaryLabel
+        label.textColor = ColorFactory.secondaryLabel
         label.numberOfLines = 2
         return label
     }()
@@ -57,8 +57,8 @@ class RepoSummaryView: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = .tertiarySystemBackground
-        layer.borderColor = UIColor.systemGray4.cgColor
+        backgroundColor = ColorFactory.tertiarySystemBackground
+        layer.borderColor = ColorFactory.systemGray4.cgColor
         layer.borderWidth = 0.7
         layer.cornerRadius = 8
         clipsToBounds = true

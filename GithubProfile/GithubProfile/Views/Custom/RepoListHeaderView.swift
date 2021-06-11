@@ -12,13 +12,13 @@ class RepoListHeaderView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
-        label.textColor = .label
+        label.textColor = ColorFactory.label
         return label
     }()
     lazy private var allButton: UIButton = {
         let title = NSAttributedString(string: "View All", attributes: [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .medium),
-            NSAttributedString.Key.foregroundColor: UIColor.label,
+            NSAttributedString.Key.foregroundColor: ColorFactory.label,
             NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue
         ])
         

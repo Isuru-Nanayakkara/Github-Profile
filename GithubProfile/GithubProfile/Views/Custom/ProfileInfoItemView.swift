@@ -12,14 +12,14 @@ class ProfileInfoItemView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        label.textColor = .label
+        label.textColor = ColorFactory.label
         return label
     }()
     lazy private var textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = .label
+        label.textColor = ColorFactory.label
         return label
     }()
     

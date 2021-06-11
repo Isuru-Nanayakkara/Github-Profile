@@ -17,21 +17,21 @@ class ProfileInfoHeaderView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        label.textColor = .label
+        label.textColor = ColorFactory.label
         return label
     }()
     lazy private var usernameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .subheadline).withSize(16)
-        label.textColor = .secondaryLabel
+        label.textColor = ColorFactory.secondaryLabel
         return label
     }()
     lazy private var emailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        label.textColor = .label
+        label.textColor = ColorFactory.label
         return label
     }()
     private lazy var infoViewsStackView: UIStackView = {
@@ -56,7 +56,7 @@ class ProfileInfoHeaderView: UIView {
     }
     
     private func commonInit() {
-        backgroundColor = .systemBackground
+        backgroundColor = ColorFactory.systemBackground
     }
     
     override func layoutSubviews() {

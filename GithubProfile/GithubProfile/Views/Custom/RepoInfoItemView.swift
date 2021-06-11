@@ -22,7 +22,7 @@ class RepoInfoItemView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .body).withSize(14)
-        label.textColor = .label
+        label.textColor = ColorFactory.label
         return label
     }()
     
@@ -61,9 +61,9 @@ extension RepoInfoItemView {
     func set(infoType type: RepoInfoItemType, iconColor color: UIColor? = nil, withText text: String) {
         switch type {
         case .stars:
-            iconImageView.image = UIImage(systemName: "star.fill")
+            iconImageView.image = AssetsFactory.startIcon
         case .language:
-            iconImageView.image = UIImage(systemName: "circle.fill")
+            iconImageView.image = AssetsFactory.circleIcon
         }
         iconImageView.tintColor = color
         textLabel.text = text

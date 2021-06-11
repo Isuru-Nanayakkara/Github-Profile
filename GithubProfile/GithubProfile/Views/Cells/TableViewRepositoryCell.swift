@@ -31,7 +31,7 @@ class TableViewRepositoryCell: UITableViewCell {
     
     private func commonInit() {
         selectionStyle = .none
-        contentView.backgroundColor = .systemBackground
+        contentView.backgroundColor = ColorFactory.systemBackground
         
         contentView.addSubview(repoView)
         

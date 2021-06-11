@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.tableHeaderView = profileHeaderView
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = ColorFactory.systemBackground
         tableView.refreshControl = refreshControl
         tableView.register(TableViewRepositoryCell.self, forCellReuseIdentifier: TableViewRepositoryCell.reuseIdentifier)
         tableView.register(HorizontallyScrollableCell.self, forCellReuseIdentifier: HorizontallyScrollableCell.reuseIdentifier)
@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Profile"
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = ColorFactory.systemBackground
         
         setupTableView()
         profileHeaderView.set(profile: MockData.user())
