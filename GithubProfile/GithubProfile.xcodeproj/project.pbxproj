@@ -20,6 +20,9 @@
 		435A7908267379FA00AE315C /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7907267379FA00AE315C /* GithubAPI.swift */; };
 		435A790A26737A2200AE315C /* GithubGraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A790926737A2200AE315C /* GithubGraphQLAPI.swift */; };
 		435A790C26737A3700AE315C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A790B26737A3700AE315C /* APIService.swift */; };
+		435A790E2673947F00AE315C /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A790D2673947F00AE315C /* CacheService.swift */; };
+		435A7911267394B800AE315C /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7910267394B800AE315C /* Cache.swift */; };
+		435A7913267397FA00AE315C /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7912267397FA00AE315C /* DiskCache.swift */; };
 		4377911E2671DD4300D52D06 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4377911D2671DD4300D52D06 /* RoundImageView.swift */; };
 		437791212671ECEE00D52D06 /* RepoInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791202671ECEE00D52D06 /* RepoInfoItemView.swift */; };
 		437791232671FD3800D52D06 /* RepoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437791222671FD3800D52D06 /* RepoListHeaderView.swift */; };
@@ -72,6 +75,9 @@
 		435A7907267379FA00AE315C /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		435A790926737A2200AE315C /* GithubGraphQLAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubGraphQLAPI.swift; sourceTree = "<group>"; };
 		435A790B26737A3700AE315C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		435A790D2673947F00AE315C /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
+		435A7910267394B800AE315C /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		435A7912267397FA00AE315C /* DiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
 		4377911D2671DD4300D52D06 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		437791202671ECEE00D52D06 /* RepoInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoInfoItemView.swift; sourceTree = "<group>"; };
 		437791222671FD3800D52D06 /* RepoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListHeaderView.swift; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				435A790B26737A3700AE315C /* APIService.swift */,
+				435A790D2673947F00AE315C /* CacheService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -187,6 +194,15 @@
 				435A790926737A2200AE315C /* GithubGraphQLAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		435A790F2673949F00AE315C /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				435A7910267394B800AE315C /* Cache.swift */,
+				435A7912267397FA00AE315C /* DiskCache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		4377911F2671EC5B00D52D06 /* Views */ = {
@@ -262,6 +278,7 @@
 				4377911F2671EC5B00D52D06 /* Views */,
 				435A7905267379BA00AE315C /* Services */,
 				435A7906267379C500AE315C /* API */,
+				435A790F2673949F00AE315C /* Cache */,
 				4347261A26735B1A00826F2B /* Utils */,
 				4377912C267239FD00D52D06 /* Extensions */,
 				435A78F226736C2C00AE315C /* GraphQL */,
@@ -457,12 +474,15 @@
 				4347261E26735DA500826F2B /* AssetsFactory.swift in Sources */,
 				43E3B11C2670ED7100CE45F3 /* ProfileViewController.swift in Sources */,
 				43E3B1202670FD8300CE45F3 /* TableViewRepositoryCell.swift in Sources */,
+				435A790E2673947F00AE315C /* CacheService.swift in Sources */,
 				435A7908267379FA00AE315C /* GithubAPI.swift in Sources */,
 				437791302672420600D52D06 /* Int+Extensions.swift in Sources */,
 				437791212671ECEE00D52D06 /* RepoInfoItemView.swift in Sources */,
+				435A7913267397FA00AE315C /* DiskCache.swift in Sources */,
 				4377912B26722E7C00D52D06 /* MockData.swift in Sources */,
 				4347261C26735B4000826F2B /* ColorFactory.swift in Sources */,
 				435A79042673722E00AE315C /* GraphQLClient.swift in Sources */,
+				435A7911267394B800AE315C /* Cache.swift in Sources */,
 				437791272672253A00D52D06 /* ProfileInfoItemView.swift in Sources */,
 				435A790A26737A2200AE315C /* GithubGraphQLAPI.swift in Sources */,
 				435A78ED26736AE200AE315C /* ProfilePresenter.swift in Sources */,

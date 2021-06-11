@@ -10,7 +10,7 @@ import Foundation
 class GithubGraphQLAPI: GithubAPI {
     
     func fetchProfile(_ completion: @escaping (Result<Profile, Error>) -> ()) {
-        GraphQLClient.shared.apollo.fetch(query: ProfileQuery()) { result in
+        GraphQLClient.shared.apollo.fetch(query: ProfileQuery(), cachePolicy: .fetchIgnoringCacheData) { result in
             switch result {
             case .success(let gqlResult):
                 guard let user = gqlResult.data?.viewer else { return }

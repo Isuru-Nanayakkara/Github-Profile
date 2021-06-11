@@ -56,9 +56,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 func makeProfileViewController() -> UIViewController {
-    let api = GithubGraphQLAPI()
-    let apiService = APIService(api: api)
-    let presenter = ProfilePresenter(api: apiService)
+    let graphqlAPI = GithubGraphQLAPI()
+    let apiService = APIService(api: graphqlAPI)
+    
+    let diskCache = DiskCache()
+    let cacheService = CacheService(cache: diskCache)
+    
+    let presenter = ProfilePresenter(api: apiService, cache: cacheService)
     let profileViewController = ProfileViewController(presenter: presenter)
+    
     return UINavigationController(rootViewController: profileViewController)
 }

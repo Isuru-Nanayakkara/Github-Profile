@@ -18,3 +18,5 @@ struct Profile {
     let topRepos: [Repository]
     let starredRepos: [Repository]
 }
+
+extension Profile: Codable { }

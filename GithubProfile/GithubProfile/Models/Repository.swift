@@ -16,3 +16,5 @@ struct Repository {
     let langauge: String
     let languageColor: String
 }
+
+extension Repository: Codable { }
