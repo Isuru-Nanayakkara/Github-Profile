@@ -8,8 +8,8 @@
 import UIKit
 
 class ProfileInfoHeaderView: UIView {
-    lazy private var avatarImageView: UIImageView = {
-        let imageView = RoundImageView()
+    lazy private var avatarImageView: AsyncImageView = {
+        let imageView = AsyncImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -69,13 +69,12 @@ class ProfileInfoHeaderView: UIView {
         setupProfileInfoItemViews()
     }
     
-    
 }
 
 // Public API
 extension ProfileInfoHeaderView {
     func set(profile: Profile) {
-        avatarImageView.image = UIImage(named: profile.avatar)
+        avatarImageView.loadImage(from: profile.avatar, placeholder: UIImage(named: "placeholder_avatar"))
         nameLabel.text = profile.name
         usernameLabel.text = profile.username
         emailLabel.text = profile.email

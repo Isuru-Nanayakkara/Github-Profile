@@ -8,8 +8,8 @@
 import UIKit
 
 class RepoSummaryView: UIView {
-    lazy private var ownerAvatarImageView: UIImageView = {
-        let imageView = RoundImageView()
+    lazy private var ownerAvatarImageView: AsyncImageView = {
+        let imageView = AsyncImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -74,7 +74,7 @@ class RepoSummaryView: UIView {
 // MARK: - Public API
 extension RepoSummaryView {
     func set(_ repository: Repository) {
-        ownerAvatarImageView.image = UIImage(named: repository.ownerAvatar)
+        ownerAvatarImageView.loadImage(from: repository.ownerAvatar, placeholder: UIImage(named: "placeholder_avatar"))
         ownerNameLabel.text = repository.ownerName
         repoNameLabel.text = repository.name
         repoDescriptionLabel.text = repository.description
