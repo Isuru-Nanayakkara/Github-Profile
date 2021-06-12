@@ -38,7 +38,7 @@ class ProfileInfoHeaderView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 100
+        stackView.spacing = 120
         return stackView
     }()
     private lazy var followersInfoView = ProfileInfoItemView()

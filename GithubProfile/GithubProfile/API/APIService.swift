@@ -14,7 +14,7 @@ class APIService {
         self.api = api
     }
     
-    func fetchProfile(_ completion: @escaping (Result<Profile, Error>) -> ()) {
-        api.fetchProfile(completion)
+    func fetchProfile(for username: String, _ completion: @escaping (Result<Profile, Error>) -> ()) {
+        api.fetchProfile(for: username, completion)
     }
 }

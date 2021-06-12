@@ -1,5 +1,5 @@
-query Profile {
-  viewer {
+query Profile($login: String!) {
+  user(login: $login) {
     name
     avatarUrl
     login

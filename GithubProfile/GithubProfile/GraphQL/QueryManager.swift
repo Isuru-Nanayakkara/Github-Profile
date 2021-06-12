@@ -8,8 +8,8 @@ public final class ProfileQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Profile {
-      viewer {
+    query Profile($login: String!) {
+      user(login: $login) {
         __typename
         name
         avatarUrl
@@ -89,7 +89,14 @@ public final class ProfileQuery: GraphQLQuery {
 
   public let operationName: String = "Profile"
 
-  public init() {
+  public var login: String
+
+  public init(login: String) {
+    self.login = login
+  }
+
+  public var variables: GraphQLMap? {
+    return ["login": login]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -97,7 +104,7 @@ public final class ProfileQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("viewer", type: .nonNull(.object(Viewer.selections))),
+        GraphQLField("user", arguments: ["login": GraphQLVariable("login")], type: .object(User.selections)),
       ]
     }
 
@@ -107,21 +114,21 @@ public final class ProfileQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(viewer: Viewer) {
-      self.init(unsafeResultMap: ["__typename": "Query", "viewer": viewer.resultMap])
+    public init(user: User? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "user": user.flatMap { (value: User) -> ResultMap in value.resultMap }])
     }
 
-    /// The currently authenticated user.
-    public var viewer: Viewer {
+    /// Lookup a user by login.
+    public var user: User? {
       get {
-        return Viewer(unsafeResultMap: resultMap["viewer"]! as! ResultMap)
+        return (resultMap["user"] as? ResultMap).flatMap { User(unsafeResultMap: $0) }
       }
       set {
-        resultMap.updateValue(newValue.resultMap, forKey: "viewer")
+        resultMap.updateValue(newValue?.resultMap, forKey: "user")
       }
     }
 
-    public struct Viewer: GraphQLSelectionSet {
+    public struct User: GraphQLSelectionSet {
       public static let possibleTypes: [String] = ["User"]
 
       public static var selections: [GraphQLSelection] {

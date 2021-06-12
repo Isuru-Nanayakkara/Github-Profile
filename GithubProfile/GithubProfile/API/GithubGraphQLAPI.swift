@@ -9,11 +9,11 @@ import Foundation
 
 class GithubGraphQLAPI: GithubAPIProvider {
     
-    func fetchProfile(_ completion: @escaping (Result<Profile, Error>) -> ()) {
-        GraphQLClient.shared.apollo.fetch(query: ProfileQuery(), cachePolicy: .fetchIgnoringCacheData) { result in
+    func fetchProfile(for username: String, _ completion: @escaping (Result<Profile, Error>) -> ()) {
+        GraphQLClient.shared.apollo.fetch(query: ProfileQuery(login: username), cachePolicy: .fetchIgnoringCacheData) { result in
             switch result {
             case .success(let gqlResult):
-                guard let user = gqlResult.data?.viewer else { return }
+                guard let user = gqlResult.data?.user else { return }
                 
                 let pinnedRepos = self.parsePinnedReposArray(user.pinnedItems.nodes?.compactMap({ $0?.asRepository }))
                 let topRepos = self.parseTopReposArray(user.repositories.nodes?.compactMap { $0 })
@@ -42,7 +42,7 @@ class GithubGraphQLAPI: GithubAPIProvider {
 // MARK: - Helper Methods
 private extension GithubGraphQLAPI {
     
-    func parsePinnedReposArray(_ nodes: [ProfileQuery.Data.Viewer.PinnedItem.Node.AsRepository]?) -> [Repository] {
+    func parsePinnedReposArray(_ nodes: [ProfileQuery.Data.User.PinnedItem.Node.AsRepository]?) -> [Repository] {
         guard let nodes = nodes else { return [] }
         
         var pinnedRepos: [Repository] = []
@@ -53,7 +53,7 @@ private extension GithubGraphQLAPI {
         return pinnedRepos
     }
     
-    func parseTopReposArray(_ nodes: [ProfileQuery.Data.Viewer.Repository.Node]?) -> [Repository] {
+    func parseTopReposArray(_ nodes: [ProfileQuery.Data.User.Repository.Node]?) -> [Repository] {
         guard let nodes = nodes else { return [] }
         
         var pinnedRepos: [Repository] = []
@@ -64,7 +64,7 @@ private extension GithubGraphQLAPI {
         return pinnedRepos
     }
     
-    func parseStarredReposArray(_ nodes: [ProfileQuery.Data.Viewer.StarredRepository.Node]?) -> [Repository] {
+    func parseStarredReposArray(_ nodes: [ProfileQuery.Data.User.StarredRepository.Node]?) -> [Repository] {
         guard let nodes = nodes else { return [] }
         
         var pinnedRepos: [Repository] = []

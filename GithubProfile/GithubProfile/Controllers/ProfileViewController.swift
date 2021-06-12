@@ -44,6 +44,8 @@ class ProfileViewController: UIViewController {
     private var sections: [Section] = []
     private var presenter: ProfilePresenter!
     
+    private let username = "Isuru-Nanayakkara"
+    
     
     init(presenter: ProfilePresenter) {
         super.init(nibName: nil, bundle: nil)
@@ -97,7 +99,7 @@ class ProfileViewController: UIViewController {
     
     // MARK: - API
     @objc private func fetchProfile() {
-        presenter.fetchProfileData()
+        presenter.fetchProfileData(forUser: username)
     }
 }
 

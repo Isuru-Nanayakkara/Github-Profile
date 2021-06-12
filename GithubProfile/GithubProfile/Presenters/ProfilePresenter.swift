@@ -32,12 +32,12 @@ class ProfilePresenter {
      First fetch the profile from the cache, if available.
      Next fetch the latest profile data from the API.
      */
-    func fetchProfileData() {
+    func fetchProfileData(forUser username: String) {
         if let profile = cache.fetchProfile() {
             delegate?.didFetchProfileData(profile)
         }
         
-        api.fetchProfile { [weak self] result in
+        api.fetchProfile(for: username) { [weak self] result in
             switch result {
             case .success(let profile):
                 self?.cache.save(profile)
