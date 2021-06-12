@@ -42,5 +42,4 @@ class DiskCache: CacheProvider {
             return nil
         }
     }
-    
 }

@@ -28,6 +28,10 @@ class ProfilePresenter {
         self.delegate = delegate
     }
     
+    /*
+     First fetch the profile from the cache, if available.
+     Next fetch the latest profile data from the API.
+     */
     func fetchProfileData() {
         if let profile = cache.fetchProfile() {
             delegate?.didFetchProfileData(profile)

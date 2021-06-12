@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13.0, *) {
             
         } else {
+            // Backwards compatibility for version prior to iOS 13
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.rootViewController = makeProfileViewController()
             window?.makeKeyAndVisible()

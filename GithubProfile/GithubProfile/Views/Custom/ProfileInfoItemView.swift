@@ -51,7 +51,6 @@ class ProfileInfoItemView: UIView {
     }
 }
 
-
 // MARK: - Public API
 extension ProfileInfoItemView {
     func set(text: String, withCount count: Int) {

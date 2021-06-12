@@ -7,8 +7,7 @@
 
 import UIKit
 
-
-extension ProfileViewController {
+private extension ProfileViewController {
     struct Section {
         enum ScrollDirection {
             case vertical
@@ -69,6 +68,17 @@ class ProfileViewController: UIViewController {
         fetchProfile()
     }
     
+    // MARK: - UI
+    private func setupTableView() {
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
     private func render(with profile: Profile) {
         profileHeaderView.set(profile: profile)
         
@@ -85,22 +95,10 @@ class ProfileViewController: UIViewController {
         tableView.reloadData()
     }
     
-    // MARK: - UI Setup
-    private func setupTableView() {
-        view.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-    }
-    
     // MARK: - API
     @objc private func fetchProfile() {
         presenter.fetchProfileData()
     }
-    
 }
 
 // MARK: - ProfilePresenterDelegate
@@ -112,7 +110,9 @@ extension ProfileViewController: ProfilePresenterDelegate {
     
     func errorOccurred(_ error: Error) {
         tableView.refreshControl?.endRefreshing()
-        print("💥 Error: \(error.localizedDescription)")
+        
+        let alert = ErrorAlert(message: error.localizedDescription)
+        alert.present(in: self)
     }
 }
 
@@ -124,6 +124,7 @@ extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = sections[section]
+        
         switch section.scrollDirection {
         case .vertical:
             return section.repositories.count
@@ -166,9 +167,5 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }

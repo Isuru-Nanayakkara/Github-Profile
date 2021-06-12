@@ -12,17 +12,19 @@ import ApolloSQLite
 final class GraphQLClient {
     static let shared = GraphQLClient()
     
-    private(set) lazy var apollo = ApolloClient(networkTransport: networkTransport, store: store)
+    private let store: ApolloStore!
+    private let cache: SQLiteNormalizedCache!
+    private let configuration = URLSessionConfiguration.default
+    private let token = ""
+    
     private lazy var networkTransport: HTTPNetworkTransport = {
         let transport = HTTPNetworkTransport(url: URL(string: "https://api.github.com/graphql")!)
         transport.delegate = self
         return transport
     }()
+    private(set) lazy var apollo = ApolloClient(networkTransport: networkTransport, store: store)
+    private var cacheURL: URL!
     
-    var cacheUrl: URL!
-    let cache: SQLiteNormalizedCache!
-    let configuration = URLSessionConfiguration.default
-    let store: ApolloStore!
     
     private init() {
         let applicationSupportPath = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true).first!
@@ -33,14 +35,14 @@ final class GraphQLClient {
         }
         
         let url = URL(fileURLWithPath: dbPath)
-        cacheUrl =  url.appendingPathComponent("apollogithubdata.sqlite3")
-        cache = try? SQLiteNormalizedCache(fileURL: cacheUrl)
+        cacheURL =  url.appendingPathComponent("apollogithubdata.sqlite3")
+        cache = try? SQLiteNormalizedCache(fileURL: cacheURL)
         configuration.timeoutIntervalForRequest = 10
         store = ApolloStore(cache: cache ?? InMemoryNormalizedCache())
     }
-    
 }
 
+// MARK: - HTTPNetworkTransportPreflightDelegate
 extension GraphQLClient: HTTPNetworkTransportPreflightDelegate {
     func networkTransport(_ networkTransport: HTTPNetworkTransport, shouldSend request: URLRequest) -> Bool {
         return true
@@ -48,7 +50,7 @@ extension GraphQLClient: HTTPNetworkTransportPreflightDelegate {
     
     func networkTransport(_ networkTransport: HTTPNetworkTransport, willSend request: inout URLRequest) {
         var headers = request.allHTTPHeaderFields ?? [String: String]()
-        headers["Authorization"] = "Bearer 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"
+        headers["Authorization"] = "Bearer " + token
         request.allHTTPHeaderFields = headers
     }
 }

@@ -68,7 +68,6 @@ class ProfileInfoHeaderView: UIView {
         setupEmailLabel()
         setupProfileInfoItemViews()
     }
-    
 }
 
 // Public API
