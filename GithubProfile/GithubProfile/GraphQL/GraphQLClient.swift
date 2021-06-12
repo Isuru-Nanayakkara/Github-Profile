@@ -15,7 +15,7 @@ final class GraphQLClient {
     private let store: ApolloStore!
     private let cache: SQLiteNormalizedCache!
     private let configuration = URLSessionConfiguration.default
-    private let token = ""
+    private let token = "<GITHUB TOKEN>"
     
     private lazy var networkTransport: HTTPNetworkTransport = {
         let transport = HTTPNetworkTransport(url: URL(string: "https://api.github.com/graphql")!)

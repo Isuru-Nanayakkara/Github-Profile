@@ -15,7 +15,12 @@
 
 #### ⚠️ IMPORTANT
 
-* Go to Github's **Settings** -> **Developer Settings** and select **Personal access tokens** and create a token with the following scopes selected.
+* Go to Github's **Settings** -> **Developer Settings** and select **Personal access tokens** and generate a token with the following scopes selected.
    - `public_repo`
    - `user`
-* Copy the token and paste it in _GraphQLClient.swift_ file inside the GraphQL directory for the `token` constant.
+
+![alt text](https://github.com/Isuru-Nanayakkara/Github-Profile/blob/main/screenshots/scope-1.png) ![alt text](https://github.com/Isuru-Nanayakkara/Github-Profile/blob/main/screenshots/scope-2.png)
+
+* Copy the token and paste it as the value for the `token` constant in the _GraphQLClient.swift_ file inside the GraphQL directory.
+
+![alt text](https://github.com/Isuru-Nanayakkara/Github-Profile/blob/main/screenshots/token.png)
