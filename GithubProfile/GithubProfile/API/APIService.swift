@@ -8,9 +8,9 @@
 import Foundation
 
 class APIService {
-    private var api: GithubAPI!
+    private var api: GithubAPIProvider!
     
-    init(api: GithubAPI) {
+    init(api: GithubAPIProvider) {
         self.api = api
     }
     

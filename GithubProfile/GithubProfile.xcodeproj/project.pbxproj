@@ -19,11 +19,11 @@
 		435A79002673719B00AE315C /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 435A78FF2673719B00AE315C /* Apollo */; };
 		435A79022673719B00AE315C /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 435A79012673719B00AE315C /* ApolloSQLite */; };
 		435A79042673722E00AE315C /* GraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A79032673722E00AE315C /* GraphQLClient.swift */; };
-		435A7908267379FA00AE315C /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7907267379FA00AE315C /* GithubAPI.swift */; };
+		435A7908267379FA00AE315C /* GithubAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7907267379FA00AE315C /* GithubAPIProvider.swift */; };
 		435A790A26737A2200AE315C /* GithubGraphQLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A790926737A2200AE315C /* GithubGraphQLAPI.swift */; };
 		435A790C26737A3700AE315C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A790B26737A3700AE315C /* APIService.swift */; };
 		435A790E2673947F00AE315C /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A790D2673947F00AE315C /* CacheService.swift */; };
-		435A7911267394B800AE315C /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7910267394B800AE315C /* Cache.swift */; };
+		435A7911267394B800AE315C /* CacheProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7910267394B800AE315C /* CacheProvider.swift */; };
 		435A7913267397FA00AE315C /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A7912267397FA00AE315C /* DiskCache.swift */; };
 		435A79182673C03600AE315C /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435A79172673C03600AE315C /* AsyncImageView.swift */; };
 		4370F804267473AF00547EE9 /* Github_ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4370F803267473AF00547EE9 /* Github_ProfileTests.swift */; };
@@ -76,11 +76,11 @@
 		435A78F426736CC600AE315C /* Profile.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Profile.graphql; sourceTree = "<group>"; };
 		435A78FA26736F2A00AE315C /* QueryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryManager.swift; sourceTree = "<group>"; };
 		435A79032673722E00AE315C /* GraphQLClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClient.swift; sourceTree = "<group>"; };
-		435A7907267379FA00AE315C /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
+		435A7907267379FA00AE315C /* GithubAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPIProvider.swift; sourceTree = "<group>"; };
 		435A790926737A2200AE315C /* GithubGraphQLAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubGraphQLAPI.swift; sourceTree = "<group>"; };
 		435A790B26737A3700AE315C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		435A790D2673947F00AE315C /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
-		435A7910267394B800AE315C /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		435A7910267394B800AE315C /* CacheProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProvider.swift; sourceTree = "<group>"; };
 		435A7912267397FA00AE315C /* DiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
 		435A79172673C03600AE315C /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		4370F801267473AF00547EE9 /* Github ProfileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Github ProfileTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,8 +203,8 @@
 		435A79162673B16900AE315C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				435A7907267379FA00AE315C /* GithubAPI.swift */,
-				435A7910267394B800AE315C /* Cache.swift */,
+				435A7907267379FA00AE315C /* GithubAPIProvider.swift */,
+				435A7910267394B800AE315C /* CacheProvider.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -491,14 +491,14 @@
 				43E3B11C2670ED7100CE45F3 /* ProfileViewController.swift in Sources */,
 				43E3B1202670FD8300CE45F3 /* TableViewRepositoryCell.swift in Sources */,
 				435A790E2673947F00AE315C /* CacheService.swift in Sources */,
-				435A7908267379FA00AE315C /* GithubAPI.swift in Sources */,
+				435A7908267379FA00AE315C /* GithubAPIProvider.swift in Sources */,
 				437791302672420600D52D06 /* Int+Extensions.swift in Sources */,
 				437791212671ECEE00D52D06 /* RepoInfoItemView.swift in Sources */,
 				435A7913267397FA00AE315C /* DiskCache.swift in Sources */,
 				4377912B26722E7C00D52D06 /* MockData.swift in Sources */,
 				4347261C26735B4000826F2B /* ColorFactory.swift in Sources */,
 				435A79042673722E00AE315C /* GraphQLClient.swift in Sources */,
-				435A7911267394B800AE315C /* Cache.swift in Sources */,
+				435A7911267394B800AE315C /* CacheProvider.swift in Sources */,
 				437791272672253A00D52D06 /* ProfileInfoItemView.swift in Sources */,
 				435A790A26737A2200AE315C /* GithubGraphQLAPI.swift in Sources */,
 				435A78ED26736AE200AE315C /* ProfilePresenter.swift in Sources */,

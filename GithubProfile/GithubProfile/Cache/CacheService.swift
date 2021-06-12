@@ -8,9 +8,9 @@
 import Foundation
 
 struct CacheService {
-    private var cache: Cache!
+    private var cache: CacheProvider!
     
-    init(cache: Cache) {
+    init(cache: CacheProvider) {
         self.cache = cache
     }
     

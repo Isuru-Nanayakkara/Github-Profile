@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GithubGraphQLAPI: GithubAPI {
+class GithubGraphQLAPI: GithubAPIProvider {
     
     func fetchProfile(_ completion: @escaping (Result<Profile, Error>) -> ()) {
         GraphQLClient.shared.apollo.fetch(query: ProfileQuery(), cachePolicy: .fetchIgnoringCacheData) { result in

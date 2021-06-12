@@ -8,7 +8,7 @@
 import XCTest
 @testable import Github_Profile
 
-class MockAPI: GithubAPI {
+class MockAPI: GithubAPIProvider {
     func fetchProfile(_ completion: @escaping (Result<Profile, Error>) -> ()) {
         
     }

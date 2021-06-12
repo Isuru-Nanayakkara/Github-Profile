@@ -10,7 +10,7 @@ import Foundation
 /*
  Encodes the data as JSON and save on disk.
  */
-class DiskCache: Cache {
+class DiskCache: CacheProvider {
     private let filename = "profile"
     
     func saveProfile(_ profile: Profile) throws {

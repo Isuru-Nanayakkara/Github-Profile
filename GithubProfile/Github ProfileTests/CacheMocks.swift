@@ -8,7 +8,7 @@
 import XCTest
 @testable import Github_Profile
 
-class MockCache: Cache {
+class MockCache: CacheProvider {
     func saveProfile(_ profile: Profile) throws {
         
     }
