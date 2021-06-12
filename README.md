@@ -34,3 +34,9 @@ final class GraphQLClient {
     
     // ...
 ```
+
+* Currently the profile is set to my own. You can change it to any Github username in the _ProfileViewController.swift_ file.
+
+```swift
+private let username = "Isuru-Nanayakkara"
+```

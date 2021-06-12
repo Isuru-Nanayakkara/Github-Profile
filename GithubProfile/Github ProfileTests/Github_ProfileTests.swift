@@ -9,7 +9,8 @@ import XCTest
 @testable import Github_Profile
 
 class Github_ProfileTests: XCTestCase {
-    var sut: ProfilePresenter!
+    private let username = "Isuru-Nanayakkara"
+    private var sut: ProfilePresenter!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -31,7 +32,7 @@ class Github_ProfileTests: XCTestCase {
         let expectation = expectation(description: "ProfilePresenter calls the didFetchProfileData delegate method with profile object")
         spyDelegate.expectation = expectation
         
-        sut.fetchProfileData()
+        sut.fetchProfileData(forUser: username)
         waitForExpectations(timeout: 5) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout error: \(error.localizedDescription)")
@@ -51,7 +52,7 @@ class Github_ProfileTests: XCTestCase {
         let expectation = expectation(description: "ProfilePresenter calls the didFetchProfileData delegate method with profile object")
         spyDelegate.expectation = expectation
         
-        sut.fetchProfileData()
+        sut.fetchProfileData(forUser: username)
         waitForExpectations(timeout: 5) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout error: \(error.localizedDescription)")
@@ -71,7 +72,7 @@ class Github_ProfileTests: XCTestCase {
         let expectation = expectation(description: "ProfilePresenter calls the didFetchProfileData delegate method with profile object")
         spyDelegate.expectation = expectation
         
-        sut.fetchProfileData()
+        sut.fetchProfileData(forUser: username)
         waitForExpectations(timeout: 5) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout error: \(error.localizedDescription)")
