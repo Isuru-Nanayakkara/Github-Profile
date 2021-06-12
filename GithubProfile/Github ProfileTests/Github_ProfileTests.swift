@@ -1,14 +1,14 @@
 //
-//  GithubProfileTests.swift
-//  GithubProfileTests
+//  Github_ProfileTests.swift
+//  Github ProfileTests
 //
-//  Created by Isuru Nanayakkara on 2021-06-09.
+//  Created by Isuru Nanayakkara on 2021-06-12.
 //
 
 import XCTest
-@testable import GithubProfile
+@testable import Github_Profile
 
-class GithubProfileTests: XCTestCase {
+class Github_ProfileTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -25,7 +25,7 @@ class GithubProfileTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
