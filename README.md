@@ -7,6 +7,7 @@
 
 ![alt text](https://github.com/Isuru-Nanayakkara/Github-Profile/blob/main/screenshots/light-1.png) ![alt text](https://github.com/Isuru-Nanayakkara/Github-Profile/blob/main/screenshots/light-2.png)
 
+> Dark mode is only available on iOS 13 and upwards
 ![alt text](https://github.com/Isuru-Nanayakkara/Github-Profile/blob/main/screenshots/dark-1.png) ![alt text](https://github.com/Isuru-Nanayakkara/Github-Profile/blob/main/screenshots/dark-2.png)
 
 </br>
