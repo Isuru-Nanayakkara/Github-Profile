@@ -23,4 +23,14 @@
 
 * Copy the token and paste it as the value for the `token` constant in the _GraphQLClient.swift_ file inside the GraphQL directory.
 
-![alt text](https://github.com/Isuru-Nanayakkara/Github-Profile/blob/main/screenshots/token.png)
+```swift
+final class GraphQLClient {
+    static let shared = GraphQLClient()
+    
+    private let store: ApolloStore!
+    private let cache: SQLiteNormalizedCache!
+    private let configuration = URLSessionConfiguration.default
+    private let token = "<GITHUB TOKEN>"
+    
+    // ...
+```
