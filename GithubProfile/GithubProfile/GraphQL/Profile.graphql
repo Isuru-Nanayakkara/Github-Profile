@@ -43,7 +43,7 @@ query Profile {
         }
       }
     }
-    starredRepositories(last: 10) {
+    starredRepositories(first: 10) {
       nodes {
         owner {
           login

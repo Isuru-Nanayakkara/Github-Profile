@@ -10,6 +10,7 @@ import XCTest
 
 class MockAPI: GithubAPIProvider {
     func fetchProfile(_ completion: @escaping (Result<Profile, Error>) -> ()) {
-        
+        let profile = MockData.user()
+        completion(.success(profile))
     }
 }

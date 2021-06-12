@@ -9,25 +9,92 @@ import XCTest
 @testable import Github_Profile
 
 class Github_ProfileTests: XCTestCase {
-
+    var sut: ProfilePresenter!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        
+        let apiService = APIService(api: MockAPI())
+        let cacheService = CacheService(cache: MockCache())
+        sut = ProfilePresenter(api: apiService, cache: cacheService)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        try super.tearDownWithError()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+    
+    func testFetchFirstThreePinnedRepos() {
+        let spyDelegate = SpyDelegate()
+        sut.setDelegate(spyDelegate)
+        
+        let expectation = expectation(description: "ProfilePresenter calls the didFetchProfileData delegate method with profile object")
+        spyDelegate.expectation = expectation
+        
+        sut.fetchProfileData()
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout error: \(error.localizedDescription)")
+            }
+            guard let result = spyDelegate.result else {
+                XCTFail("Expected delegate to be called")
+                return
+            }
+            XCTAssertEqual(result.pinnedRepos.count, 3)
         }
     }
+    
+    func testFetchFirstTenTopRepos() {
+        let spyDelegate = SpyDelegate()
+        sut.setDelegate(spyDelegate)
+        
+        let expectation = expectation(description: "ProfilePresenter calls the didFetchProfileData delegate method with profile object")
+        spyDelegate.expectation = expectation
+        
+        sut.fetchProfileData()
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout error: \(error.localizedDescription)")
+            }
+            guard let result = spyDelegate.result else {
+                XCTFail("Expected delegate to be called")
+                return
+            }
+            XCTAssertEqual(result.topRepos.count, 10)
+        }
+    }
+    
+    func testFetchFirstTenStarredRepos() {
+        let spyDelegate = SpyDelegate()
+        sut.setDelegate(spyDelegate)
+        
+        let expectation = expectation(description: "ProfilePresenter calls the didFetchProfileData delegate method with profile object")
+        spyDelegate.expectation = expectation
+        
+        sut.fetchProfileData()
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout error: \(error.localizedDescription)")
+            }
+            guard let result = spyDelegate.result else {
+                XCTFail("Expected delegate to be called")
+                return
+            }
+            XCTAssertEqual(result.starredRepos.count, 10)
+        }
+    }
+}
 
+class SpyDelegate: ProfilePresenterDelegate {
+    var result: Profile!
+    var expectation: XCTestExpectation?
+    
+    func didFetchProfileData(_ profile: Profile) {
+        result = profile
+        expectation?.fulfill()
+    }
+    
+    func errorOccurred(_ error: Error) {
+        
+    }
 }

@@ -64,7 +64,7 @@ public final class ProfileQuery: GraphQLQuery {
             }
           }
         }
-        starredRepositories(last: 10) {
+        starredRepositories(first: 10) {
           __typename
           nodes {
             __typename
@@ -136,7 +136,7 @@ public final class ProfileQuery: GraphQLQuery {
           GraphQLField("following", type: .nonNull(.object(Following.selections))),
           GraphQLField("pinnedItems", arguments: ["first": 3, "types": "REPOSITORY"], type: .nonNull(.object(PinnedItem.selections))),
           GraphQLField("repositories", arguments: ["first": 10], type: .nonNull(.object(Repository.selections))),
-          GraphQLField("starredRepositories", arguments: ["last": 10], type: .nonNull(.object(StarredRepository.selections))),
+          GraphQLField("starredRepositories", arguments: ["first": 10], type: .nonNull(.object(StarredRepository.selections))),
         ]
       }
 

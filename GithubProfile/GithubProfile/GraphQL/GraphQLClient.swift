@@ -48,7 +48,7 @@ extension GraphQLClient: HTTPNetworkTransportPreflightDelegate {
     
     func networkTransport(_ networkTransport: HTTPNetworkTransport, willSend request: inout URLRequest) {
         var headers = request.allHTTPHeaderFields ?? [String: String]()
-        headers["Authorization"] = ""
+        headers["Authorization"] = "Bearer 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"
         request.allHTTPHeaderFields = headers
     }
 }
