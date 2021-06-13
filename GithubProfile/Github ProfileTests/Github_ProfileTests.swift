@@ -10,6 +10,9 @@ import XCTest
 
 class Github_ProfileTests: XCTestCase {
     private let username = "Isuru-Nanayakkara"
+    private let pinned = 3
+    private let top = 10
+    private let starred = 10
     private var sut: ProfilePresenter!
     
     override func setUpWithError() throws {
@@ -32,7 +35,7 @@ class Github_ProfileTests: XCTestCase {
         let expectation = expectation(description: "ProfilePresenter calls the didFetchProfileData delegate method with profile object")
         spyDelegate.expectation = expectation
         
-        sut.fetchProfileData(forUser: username)
+        sut.fetchProfileData(forUser: username, pinned: pinned, top: top, starred: starred)
         waitForExpectations(timeout: 5) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout error: \(error.localizedDescription)")
@@ -52,7 +55,7 @@ class Github_ProfileTests: XCTestCase {
         let expectation = expectation(description: "ProfilePresenter calls the didFetchProfileData delegate method with profile object")
         spyDelegate.expectation = expectation
         
-        sut.fetchProfileData(forUser: username)
+        sut.fetchProfileData(forUser: username, pinned: pinned, top: top, starred: starred)
         waitForExpectations(timeout: 5) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout error: \(error.localizedDescription)")
@@ -72,7 +75,7 @@ class Github_ProfileTests: XCTestCase {
         let expectation = expectation(description: "ProfilePresenter calls the didFetchProfileData delegate method with profile object")
         spyDelegate.expectation = expectation
         
-        sut.fetchProfileData(forUser: username)
+        sut.fetchProfileData(forUser: username, pinned: pinned, top: top, starred: starred)
         waitForExpectations(timeout: 5) { error in
             if let error = error {
                 XCTFail("waitForExpectationsWithTimeout error: \(error.localizedDescription)")

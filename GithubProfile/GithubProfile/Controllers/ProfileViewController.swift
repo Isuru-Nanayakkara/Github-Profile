@@ -45,6 +45,9 @@ class ProfileViewController: UIViewController {
     private var presenter: ProfilePresenter!
     
     private let username = "Isuru-Nanayakkara"
+    private let pinnedRepos = 3
+    private let topRepos = 10
+    private let starredRepos = 10
     
     
     init(presenter: ProfilePresenter) {
@@ -99,7 +102,7 @@ class ProfileViewController: UIViewController {
     
     // MARK: - API
     @objc private func fetchProfile() {
-        presenter.fetchProfileData(forUser: username)
+        presenter.fetchProfileData(forUser: username, pinned: pinnedRepos, top: topRepos, starred: starredRepos)
     }
 }
 

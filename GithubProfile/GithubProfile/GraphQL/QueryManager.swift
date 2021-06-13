@@ -8,7 +8,7 @@ public final class ProfileQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query Profile($login: String!) {
+    query Profile($login: String!, $pinned: Int!, $top: Int!, $starred: Int!) {
       user(login: $login) {
         __typename
         name
@@ -24,7 +24,7 @@ public final class ProfileQuery: GraphQLQuery {
           __typename
           totalCount
         }
-        pinnedItems(first: 3, types: REPOSITORY) {
+        pinnedItems(first: $pinned, types: REPOSITORY) {
           __typename
           nodes {
             __typename
@@ -45,7 +45,7 @@ public final class ProfileQuery: GraphQLQuery {
             }
           }
         }
-        repositories(first: 10) {
+        repositories(first: $top) {
           __typename
           nodes {
             __typename
@@ -64,7 +64,7 @@ public final class ProfileQuery: GraphQLQuery {
             }
           }
         }
-        starredRepositories(first: 10) {
+        starredRepositories(first: $starred) {
           __typename
           nodes {
             __typename
@@ -90,13 +90,19 @@ public final class ProfileQuery: GraphQLQuery {
   public let operationName: String = "Profile"
 
   public var login: String
+  public var pinned: Int
+  public var top: Int
+  public var starred: Int
 
-  public init(login: String) {
+  public init(login: String, pinned: Int, top: Int, starred: Int) {
     self.login = login
+    self.pinned = pinned
+    self.top = top
+    self.starred = starred
   }
 
   public var variables: GraphQLMap? {
-    return ["login": login]
+    return ["login": login, "pinned": pinned, "top": top, "starred": starred]
   }
 
   public struct Data: GraphQLSelectionSet {
@@ -141,9 +147,9 @@ public final class ProfileQuery: GraphQLQuery {
           GraphQLField("email", type: .nonNull(.scalar(String.self))),
           GraphQLField("followers", type: .nonNull(.object(Follower.selections))),
           GraphQLField("following", type: .nonNull(.object(Following.selections))),
-          GraphQLField("pinnedItems", arguments: ["first": 3, "types": "REPOSITORY"], type: .nonNull(.object(PinnedItem.selections))),
-          GraphQLField("repositories", arguments: ["first": 10], type: .nonNull(.object(Repository.selections))),
-          GraphQLField("starredRepositories", arguments: ["first": 10], type: .nonNull(.object(StarredRepository.selections))),
+          GraphQLField("pinnedItems", arguments: ["first": GraphQLVariable("pinned"), "types": "REPOSITORY"], type: .nonNull(.object(PinnedItem.selections))),
+          GraphQLField("repositories", arguments: ["first": GraphQLVariable("top")], type: .nonNull(.object(Repository.selections))),
+          GraphQLField("starredRepositories", arguments: ["first": GraphQLVariable("starred")], type: .nonNull(.object(StarredRepository.selections))),
         ]
       }
 

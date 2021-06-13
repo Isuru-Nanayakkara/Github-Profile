@@ -9,8 +9,10 @@ import Foundation
 
 class GithubGraphQLAPI: GithubAPIProvider {
     
-    func fetchProfile(for username: String, _ completion: @escaping (Result<Profile, Error>) -> ()) {
-        GraphQLClient.shared.apollo.fetch(query: ProfileQuery(login: username), cachePolicy: .fetchIgnoringCacheData) { result in
+    func fetchProfile(for username: String, pinned: Int, top: Int, starred: Int, _ completion: @escaping (Result<Profile, Error>) -> ()) {
+        let query = ProfileQuery(login: username, pinned: pinned, top: top, starred: starred)
+        
+        GraphQLClient.shared.apollo.fetch(query: query, cachePolicy: .fetchIgnoringCacheData) { result in
             switch result {
             case .success(let gqlResult):
                 guard let user = gqlResult.data?.user else { return }

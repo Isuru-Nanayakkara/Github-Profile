@@ -8,5 +8,5 @@
 import Foundation
 
 protocol GithubAPIProvider: AnyObject {
-    func fetchProfile(for username: String, _ completion: @escaping (Result<Profile, Error>) -> ())
+    func fetchProfile(for username: String, pinned: Int, top: Int, starred: Int, _ completion: @escaping (Result<Profile, Error>) -> ())
 }
