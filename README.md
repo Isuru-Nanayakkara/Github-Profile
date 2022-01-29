@@ -1,4 +1,4 @@
-# Github Profile (Otrium iOS Challenge)
+# Github Profile App
 
 * 100% written in Swift.
 * Programatic UI.
